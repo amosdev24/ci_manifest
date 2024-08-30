@@ -9,7 +9,7 @@ services:
  ports:
  - 8080:80
 nginx:
- image: nginx:alpine
+ image: amosdev24/vueproject:10
  container_name: nginx-app
  volumes:
  - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
