@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: todo
-        image: amosdev24/vueproject:10
+        image: amosdev24/vueproject:v1
         ports:
         - containerPort: 8000
