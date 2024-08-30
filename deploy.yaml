@@ -1,20 +1,21 @@
-```yaml
-version: '3'
-services:
- app:
- build:
- context: .
- dockerfile: Dockerfile
- container_name: vue-app
- ports:
- - 8080:80
-nginx:
- image: amosdev24/vueproject:10
- container_name: nginx-app
- volumes:
- - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
- ports:
- - 80:80
- depends_on:
- - app
-```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: todo
+        image: amosdev24/vueproject:10
+        ports:
+        - containerPort: 8000
