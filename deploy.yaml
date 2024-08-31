@@ -18,7 +18,7 @@ spec:
         app: flaskdemo
     spec:
       containers:
-      - image: amosdev24/vueproject:29
+      - image: amosdev24/vueproject:${BUILD_NUMBER}
         name: flaskdemo
         resources: {}
 status: {}
