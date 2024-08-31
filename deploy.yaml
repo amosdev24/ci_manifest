@@ -1,38 +1,21 @@
-appVER: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
+  name: todo-app
   labels:
-    app: flaskdemo
-  name: flaskdemo
+    app: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: flaskdemo
-  strategy: {}
+      app: nginx
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: flaskdemo
+        app: nginx
     spec:
       containers:
-      - image: amosdev24/vueproject:${BUILD_NUMBER}
-        name: flaskdemo
-        resources: {}
-status: {}
----
-appVER: v1
-kind: Service
-metadata:
-  name: lb-service
-  labels:
-    app: lb-service
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 5000
-  selector:
-    app: flaskdemo
+      - name: todo
+        image: amosdev24/vueproject:70
+        ports:
+        - containerPort: 8000
