@@ -1,4 +1,4 @@
-appVER: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
@@ -23,7 +23,7 @@ spec:
         resources: {}
 status: {}
 ---
-appVER: v1
+apiVersion: v1
 kind: Service
 metadata:
   name: lb-service
